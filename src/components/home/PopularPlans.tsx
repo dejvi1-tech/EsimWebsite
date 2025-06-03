@@ -20,9 +20,9 @@ const PopularPlans = () => {
     <section className="bg-secondary py-16">
       <div className="container-custom">
         <div className="mb-8 text-center">
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">{t('plans.title')}</h2>
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl">Planet eSIM të Disponueshme</h2>
           <p className="mx-auto max-w-3xl text-gray-600">
-            {t('plans.subtitle')}
+            Zgjidhni nga gama jonë e gjerë e planeve të të dhënave të përshtatura për nevojat tuaja të udhëtimit
           </p>
         </div>
 
@@ -43,14 +43,14 @@ const PopularPlans = () => {
                 </div>
                 {plan.popular && (
                   <div className="rounded-full bg-pink-500 px-2 py-0.5 text-xs font-medium text-white">
-                    Popular
+                    Popullarizuar
                   </div>
                 )}
               </div>
 
               <div className="mb-4">
                 <div className="text-2xl font-bold text-primary">€{plan.price}</div>
-                <div className="text-sm text-gray-500">one-time payment</div>
+                <div className="text-sm text-gray-500">një herë</div>
               </div>
 
               <div className="mb-4 space-y-2">
@@ -58,10 +58,10 @@ const PopularPlans = () => {
                   <span className="font-medium">{plan.dataAmount}</span>
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
-                  Valid for {plan.validity}
+                  I vlefshëm për {plan.validity}
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
-                  {plan.coverage.length} countries covered
+                  {plan.coverage.length} shtete të mbuluara
                 </div>
               </div>
 
@@ -69,7 +69,7 @@ const PopularPlans = () => {
                 onClick={() => handleBuyNow(plan.id)}
                 className="w-full rounded-lg bg-primary px-4 py-2 text-center text-sm font-medium text-white transition-colors hover:bg-primary-dark"
               >
-                Buy Now
+                Bli Tani
               </button>
             </div>
           ))}
@@ -82,7 +82,7 @@ const PopularPlans = () => {
               size="lg" 
               className="group"
             >
-              {t('plans.viewAll')}
+              Shiko të Gjitha Planet
               <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>
