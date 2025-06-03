@@ -1,8 +1,9 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, MapPin } from 'lucide-react';
+import { Search, MapPin, Wifi, Clock, Globe, Check } from 'lucide-react';
 import { europeanCountries, Country } from '../../data/countries';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { Link } from 'react-router-dom';
 
 interface CountrySearchProps {
   onCountrySelect: (country: Country) => void;
@@ -29,6 +30,32 @@ const CountrySearch = ({ onCountrySelect, selectedCountry }: CountrySearchProps)
     setIsOpen(false);
   };
 
+  // Sample plans for demonstration - in a real app, these would come from your plans database
+  const countryPlans = [
+    {
+      id: 'basic',
+      data: '3GB',
+      price: 8.99,
+      validity: '30 ditë',
+      features: ['Instant activation', 'No physical SIM required', '24/7 customer support', 'Hotspot sharing enabled']
+    },
+    {
+      id: 'standard',
+      data: '6GB',
+      price: 15.99,
+      validity: '30 ditë',
+      popular: true,
+      features: ['Instant activation', 'No physical SIM required', '24/7 customer support', 'Hotspot sharing enabled']
+    },
+    {
+      id: 'premium',
+      data: '10GB',
+      price: 24.99,
+      validity: '30 ditë',
+      features: ['Instant activation', 'No physical SIM required', '24/7 customer support', 'Hotspot sharing enabled']
+    }
+  ];
+
   return (
     <div className="relative w-full max-w-md mx-auto">
       {/* Search Input */}
@@ -52,24 +79,93 @@ const CountrySearch = ({ onCountrySelect, selectedCountry }: CountrySearchProps)
         </div>
       </div>
 
-      {/* Selected Country Display */}
+      {/* Selected Country Display and Plans */}
       <AnimatePresence>
         {selectedCountry && !isOpen && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="mt-4 p-4 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20"
+            className="mt-6 space-y-4"
           >
-            <div className="flex items-center gap-3">
-              <img
-                src={selectedCountry.flag}
-                alt={selectedCountry.name[language]}
-                className="w-8 h-6 object-cover rounded"
-              />
-              <span className="font-semibold text-white">
-                {selectedCountry.name[language]}
-              </span>
+            {/* Country Info */}
+            <div className="p-4 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20">
+              <div className="flex items-center gap-3">
+                <img
+                  src={selectedCountry.flag}
+                  alt={selectedCountry.name[language]}
+                  className="w-8 h-6 object-cover rounded"
+                />
+                <span className="font-semibold text-white">
+                  {selectedCountry.name[language]}
+                </span>
+              </div>
+            </div>
+
+            {/* Plans Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {countryPlans.map((plan) => (
+                <motion.div
+                  key={plan.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="relative bg-white rounded-xl p-6 shadow-lg"
+                >
+                  {plan.popular && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-pink-500 text-white px-4 py-1 rounded-full text-sm font-medium">
+                      Popullarizuar
+                    </div>
+                  )}
+                  
+                  <div className="flex items-center gap-3 mb-4">
+                    <img
+                      src={selectedCountry.flag}
+                      alt={selectedCountry.name[language]}
+                      className="w-12 h-12 rounded-full border-4 border-blue-100"
+                    />
+                    <div>
+                      <div className="text-gray-600">Data Plan</div>
+                      <div className="text-2xl font-bold text-primary">{plan.data}</div>
+                    </div>
+                  </div>
+
+                  <div className="text-3xl font-bold text-primary mb-1">
+                    €{plan.price}
+                  </div>
+                  <div className="text-gray-500 mb-4">one-time</div>
+
+                  <div className="space-y-2 mb-6">
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <Wifi size={18} className="text-primary" />
+                      <span>{plan.data} High-Speed Data</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <Clock size={18} className="text-primary" />
+                      <span>Valid for {plan.validity}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-600">
+                      <Globe size={18} className="text-primary" />
+                      <span>Coverage: {selectedCountry.name[language]}</span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2 mb-6">
+                    {plan.features.map((feature, index) => (
+                      <div key={index} className="flex items-center gap-2 text-gray-600">
+                        <Check size={16} className="text-success" />
+                        <span className="text-sm">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Link
+                    to={`/checkout?plan=${plan.id}`}
+                    className="block w-full py-3 text-center bg-primary text-white rounded-full font-medium hover:bg-primary-dark transition-colors"
+                  >
+                    Bli tani
+                  </Link>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         )}
