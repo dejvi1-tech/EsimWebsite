@@ -118,7 +118,6 @@ const BrowsePlansPage = () => {
 
   const handlePlanSelect = (planId: string) => {
     setSelectedPlan(planId);
-    // Automatically navigate to checkout when a plan is selected
     navigate(`/checkout?plan=${planId}&step=payment`);
   };
 
@@ -137,56 +136,49 @@ const BrowsePlansPage = () => {
 
           <div className="space-y-4">
             {europeanPlans.map((plan) => (
-              <label
+              <button
                 key={plan.id}
-                className={`relative flex cursor-pointer items-center rounded-lg border-2 p-4 transition-all hover:border-primary/50 ${
-                  selectedPlan === plan.id ? 'border-primary bg-primary/5' : 'border-gray-200'
-                }`}
                 onClick={() => handlePlanSelect(plan.id)}
+                className={`w-full text-left transition-all ${
+                  selectedPlan === plan.id ? 'ring-2 ring-primary' : ''
+                }`}
               >
-                <input
-                  type="radio"
-                  name="plan"
-                  value={plan.id}
-                  checked={selectedPlan === plan.id}
-                  onChange={() => {}}
-                  className="h-4 w-4 text-primary"
-                />
-                
-                <div className="ml-4 flex flex-1 items-center justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2">
-                      <span className="font-medium">{plan.data}</span>
-                      {plan.isOffer && (
-                        <span className="rounded-full bg-pink-500 px-2 py-0.5 text-xs font-medium text-white">
-                          Popullarizuar
-                        </span>
-                      )}
+                <div className="relative flex cursor-pointer items-center rounded-lg border-2 p-4 transition-all hover:border-primary/50">
+                  <div className="ml-4 flex flex-1 items-center justify-between">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2">
+                        <span className="font-medium">{plan.data}</span>
+                        {plan.isOffer && (
+                          <span className="rounded-full bg-pink-500 px-2 py-0.5 text-xs font-medium text-white">
+                            Popullarizuar
+                          </span>
+                        )}
+                      </div>
+                      <div className="mt-1 text-sm text-gray-600">{plan.name}</div>
+                      
+                      <div className="mt-2 grid grid-cols-3 gap-4">
+                        <div className="flex items-center gap-2 text-sm text-gray-600">
+                          <Wifi size={16} className="text-primary" />
+                          <span>{plan.data}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-gray-600">
+                          <Clock size={16} className="text-primary" />
+                          <span>{plan.validity}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-gray-600">
+                          <Globe size={16} className="text-primary" />
+                          <span>{plan.coverage}</span>
+                        </div>
+                      </div>
                     </div>
-                    <div className="mt-1 text-sm text-gray-600">{plan.name}</div>
                     
-                    <div className="mt-2 grid grid-cols-3 gap-4">
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <Wifi size={16} className="text-primary" />
-                        <span>{plan.data}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <Clock size={16} className="text-primary" />
-                        <span>{plan.validity}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <Globe size={16} className="text-primary" />
-                        <span>{plan.coverage}</span>
-                      </div>
+                    <div className="ml-4 text-right">
+                      <div className="text-lg font-bold text-primary">€{plan.price.toFixed(2)}</div>
+                      <div className="text-sm text-gray-500">one-time</div>
                     </div>
-                  </div>
-                  
-                  <div className="ml-4 text-right">
-                    <div className="text-lg font-bold text-primary">€{plan.price.toFixed(2)}</div>
-                    <div className="text-sm text-gray-500">one-time</div>
                   </div>
                 </div>
-              </label>
+              </button>
             ))}
           </div>
         </div>
