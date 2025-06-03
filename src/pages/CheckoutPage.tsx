@@ -343,7 +343,7 @@ const CheckoutPage = () => {
                   <>
                     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                       <div>
-                        <label htmlFor="firstName\" className=\"mb-1 block text-sm font-medium text-gray-700">
+                        <label htmlFor="firstName" className="mb-1 block text-sm font-medium text-gray-700">
                           First Name
                         </label>
                         <input
