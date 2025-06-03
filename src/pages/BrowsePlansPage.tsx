@@ -53,6 +53,64 @@ const europeanPlans = [
     price: 17.50,
     coverage: 'Europë, SHBA, Shqipëri',
     isOffer: true
+  },
+  {
+    id: 'plan-20gb',
+    name: '20GB / 60 Ditë / Europë, SHBA, Ballkan - 75 Shtete / Data Only',
+    data: '20GB',
+    validity: '60 Ditë',
+    price: 24.99,
+    coverage: 'Europë, SHBA, Ballkan'
+  },
+  {
+    id: 'plan-30gb',
+    name: '30GB / 30 Ditë / Europë, SHBA, Ballkan - 75 Shtete / Data Only',
+    data: '30GB',
+    validity: '30 Ditë',
+    price: 29.99,
+    coverage: 'Europë, SHBA, Ballkan'
+  },
+  {
+    id: 'plan-35gb',
+    name: '35GB EU, 50GB Angli - O2 SUPER (EU, Angli, Zvicër - 48 shtete) / 30 Ditë',
+    data: '35GB EU, 50GB Angli',
+    validity: '30 Ditë',
+    price: 28.00,
+    coverage: 'EU, Angli, Zvicër',
+    special: true,
+    features: ['Numër +44 Anglez për thirje brënda vendit të qëndrimit', 'Telefonata pa limit brënda vendit të qëndrimit', 'SMS hyrëse pa limit', '30 ditë aktive nga momenti i blerjes', '*Nuk funksionon në Ballkan*']
+  },
+  {
+    id: 'plan-50gb',
+    name: '50GB / 30 Ditë / Europë, SHBA, Ballkan - 75 Shtete / Data Only',
+    data: '50GB',
+    validity: '30 Ditë',
+    price: 35.90,
+    coverage: 'Europë, SHBA, Ballkan'
+  },
+  {
+    id: 'plan-unlimited-7',
+    name: 'Pa Limit / 7 Ditë / Europë, SHBA, Shqipëri - 40 Shtete / Data Only',
+    data: 'Pa Limit',
+    validity: '7 Ditë',
+    price: 23.00,
+    coverage: 'Europë, SHBA, Shqipëri'
+  },
+  {
+    id: 'plan-unlimited-15',
+    name: 'Pa Limit / 15 Ditë / Europë, SHBA, Shqipëri - 40 Shtete / Data Only',
+    data: 'Pa Limit',
+    validity: '15 Ditë',
+    price: 35.00,
+    coverage: 'Europë, SHBA, Shqipëri'
+  },
+  {
+    id: 'plan-unlimited-30',
+    name: 'Pa Limit / 30 Ditë / Europë, SHBA, Shqipëri - 40 Shtete / Data Only',
+    data: 'Pa Limit',
+    validity: '30 Ditë',
+    price: 59.99,
+    coverage: 'Europë, SHBA, Shqipëri'
   }
 ];
 
@@ -107,6 +165,11 @@ const BrowsePlansPage = () => {
                             Popullarizuar
                           </span>
                         )}
+                        {plan.special && (
+                          <span className="rounded-full bg-blue-500 px-2 py-0.5 text-xs font-medium text-white">
+                            Special
+                          </span>
+                        )}
                       </div>
                       <div className="mt-1 text-sm text-gray-600">{plan.name}</div>
                       
@@ -124,6 +187,18 @@ const BrowsePlansPage = () => {
                           <span>{plan.coverage}</span>
                         </div>
                       </div>
+
+                      {plan.features && (
+                        <div className="mt-2 border-t border-gray-100 pt-2">
+                          <ul className="grid grid-cols-1 gap-1">
+                            {plan.features.map((feature, index) => (
+                              <li key={index} className="text-sm text-gray-600">
+                                • {feature}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </div>
                     
                     <div className="ml-4 text-right">
