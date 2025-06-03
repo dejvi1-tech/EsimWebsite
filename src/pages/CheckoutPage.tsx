@@ -86,8 +86,7 @@ const CheckoutPage = () => {
 
   const subtotal = plan.price;
   const discount = appliedCoupon ? subtotal * validCoupons[appliedCoupon as keyof typeof validCoupons].discount : 0;
-  const tax = (subtotal - discount) * 0.05; // 5% tax after discount
-  const total = subtotal - discount + tax;
+  const total = subtotal - discount;
 
   if (orderComplete) {
     return (
@@ -268,10 +267,6 @@ const CheckoutPage = () => {
                       <span className="text-success">-€{discount.toFixed(2)}</span>
                     </div>
                   )}
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">{t('checkout.tax')}</span>
-                    <span>€{tax.toFixed(2)}</span>
-                  </div>
                   <div className="flex justify-between border-t border-gray-100 pt-3 font-semibold">
                     <span>{t('checkout.total')}</span>
                     <span className="text-lg text-primary">€{total.toFixed(2)}</span>
