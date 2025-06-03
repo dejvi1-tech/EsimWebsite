@@ -26,9 +26,9 @@ const HomePage = () => {
     <div>
       {showOnboarding && <AIOnboarding />}
       <Hero />
+      <PopularPlans />
       <Features />
       <ConnectInstantly />
-      <PopularPlans />
       <HowItWorks />
       <Testimonials />
       
