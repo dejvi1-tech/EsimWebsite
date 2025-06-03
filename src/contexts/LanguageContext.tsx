@@ -19,6 +19,10 @@ const translations = {
     'nav.cart': 'Cart',
     'nav.aboutUs': 'About Us',
 
+    // Hero Section
+    'hero.title': 'Stay Connected Anywhere in the World',
+    'hero.subtitle': 'Instant eSIM activation for 190+ countries. No physical SIM needed. Connect to local networks at affordable prices.',
+
     // Features Section
     'features.title': 'Why Choose Our eSIM Service?',
     'features.subtitle': 'Experience the convenience of our eSIM technology with these amazing features',
@@ -44,7 +48,19 @@ const translations = {
     'cta.subtitle': 'Choose from our wide range of eSIM plans and enjoy seamless connectivity on your next adventure.',
     'cta.button': 'Get Your eSIM Now',
 
-    // Rest of the translations...
+    // Footer
+    'footer.quickLinks': 'Quick Links',
+    'footer.support': 'Support',
+    'footer.contactUs': 'Contact Us',
+    'footer.helpCenter': 'Help Center',
+    'footer.installationGuide': 'Installation Guide',
+    'footer.compatibilityCheck': 'Compatibility Check',
+    'footer.legal': 'Legal',
+    'footer.termsOfService': 'Terms of Service',
+    'footer.privacyPolicy': 'Privacy Policy',
+    'footer.refundPolicy': 'Refund Policy',
+    'footer.cookiePolicy': 'Cookie Policy',
+    'footer.rights': 'All rights reserved.'
   },
   sq: {
     // Navigation
@@ -55,6 +71,10 @@ const translations = {
     'nav.account': 'Llogaria',
     'nav.cart': 'Shporta',
     'nav.aboutUs': 'Rreth Nesh',
+
+    // Hero Section
+    'hero.title': 'Qëndroni të Lidhur Kudo në Botë',
+    'hero.subtitle': 'Aktivizim i menjëhershëm i eSIM për më shumë se 190 vende. Nuk nevojitet SIM fizike. Lidhuni me rrjetet lokale me çmime të përballueshme.',
 
     // Features Section
     'features.title': 'Pse të Zgjidhni Shërbimin tonë eSIM?',
@@ -81,7 +101,19 @@ const translations = {
     'cta.subtitle': 'Zgjidhni nga gama jonë e gjerë e planeve eSIM dhe shijoni lidhje të pandërprerë në aventurën tuaj të radhës.',
     'cta.button': 'Merrni eSIM-in Tuaj Tani',
 
-    // Rest of the translations...
+    // Footer
+    'footer.quickLinks': 'Lidhje të Shpejta',
+    'footer.support': 'Mbështetje',
+    'footer.contactUs': 'Na Kontaktoni',
+    'footer.helpCenter': 'Qendra e Ndihmës',
+    'footer.installationGuide': 'Udhëzuesi i Instalimit',
+    'footer.compatibilityCheck': 'Kontrolli i Përputhshmërisë',
+    'footer.legal': 'Ligjore',
+    'footer.termsOfService': 'Kushtet e Shërbimit',
+    'footer.privacyPolicy': 'Politika e Privatësisë',
+    'footer.refundPolicy': 'Politika e Rimbursimit',
+    'footer.cookiePolicy': 'Politika e Cookies',
+    'footer.rights': 'Të gjitha të drejtat e rezervuara.'
   }
 };
 
