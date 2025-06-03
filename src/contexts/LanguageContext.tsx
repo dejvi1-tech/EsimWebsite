@@ -70,6 +70,14 @@ const translations = {
     'checkout.total': 'Total',
     'checkout.proceed': 'Proceed to Payment',
     'checkout.secure': 'Secure Checkout',
+    'checkout.cardName': 'Name on Card',
+    'checkout.cardNumber': 'Card Number',
+    'checkout.cardExpiry': 'Expiry Date',
+    'checkout.cardCvc': 'CVC',
+    'checkout.pay': 'Pay Now',
+    'checkout.processing': 'Processing...',
+    'checkout.secureDesc': 'Your payment information is secure',
+    'checkout.securePayment': 'Secure payment processing',
 
     // Account
     'account.title': 'My Account',
@@ -153,6 +161,14 @@ const translations = {
     'checkout.total': 'Totali',
     'checkout.proceed': 'Vazhdo me Pagesën',
     'checkout.secure': 'Pagesë e Sigurt',
+    'checkout.cardName': 'Emri në Kartë',
+    'checkout.cardNumber': 'Numri i Kartës',
+    'checkout.cardExpiry': 'Data e Skadimit',
+    'checkout.cardCvc': 'CVC',
+    'checkout.pay': 'Paguaj Tani',
+    'checkout.processing': 'Duke procesuar...',
+    'checkout.secureDesc': 'Informacioni juaj i pagesës është i sigurt',
+    'checkout.securePayment': 'Procesim i sigurt i pagesës',
 
     // Account
     'account.title': 'Llogaria Ime',

@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { getPlanById } from '../data/plans';
 import Button from '../components/ui/Button';
+import DirectPayment from '../components/checkout/DirectPayment';
 import { Check, CreditCard, AlertCircle, Globe, Clock, Signal, ChevronRight, Shield, X, Tag } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 // Mock coupon codes
 const validCoupons = {
   'WELCOME10': { discount: 0.10, description: '10% off your first purchase' },
-  'SUMMER25': { discount: 0.25, description: '25% off summer special' },
+  'SUMMER25': { discount: 0.25, description: '25% summer special' },
   'TRAVEL15': { discount: 0.15, description: '15% off for travelers' }
 };
 
@@ -15,6 +17,7 @@ const CheckoutPage = () => {
   const [searchParams] = useSearchParams();
   const planId = searchParams.get('plan');
   const plan = planId ? getPlanById(planId) : null;
+  const { t } = useLanguage();
 
   const [isProcessing, setIsProcessing] = useState(false);
   const [orderComplete, setOrderComplete] = useState(false);
@@ -27,13 +30,9 @@ const CheckoutPage = () => {
     email: '',
     firstName: '',
     lastName: '',
-    cardName: '',
-    cardNumber: '',
-    cardExpiry: '',
-    cardCvc: '',
     agreeToTerms: false
   });
-
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
     setFormData({ 
@@ -67,22 +66,19 @@ const CheckoutPage = () => {
       setStep('payment');
       return;
     }
-    
-    setIsProcessing(true);
-    // Simulate payment processing
-    setTimeout(() => {
-      setIsProcessing(false);
-      setOrderComplete(true);
-    }, 2000);
+  };
+
+  const handlePaymentSuccess = () => {
+    setOrderComplete(true);
   };
 
   if (!plan) {
     return (
       <div className="container-custom mx-auto mt-32 py-16 text-center">
-        <h2 className="mb-4 text-3xl font-bold">No Plan Selected</h2>
-        <p className="mb-8 text-gray-600">Please select an eSIM plan to continue with checkout.</p>
+        <h2 className="mb-4 text-3xl font-bold">{t('checkout.noPlan')}</h2>
+        <p className="mb-8 text-gray-600">{t('checkout.selectPlan')}</p>
         <Link to="/plans">
-          <Button variant="primary">Browse Plans</Button>
+          <Button variant="primary">{t('checkout.browsePlans')}</Button>
         </Link>
       </div>
     );
@@ -102,14 +98,14 @@ const CheckoutPage = () => {
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-success/20">
                 <Check size={30} className="text-success" />
               </div>
-              <h2 className="mb-2 text-2xl font-bold">Order Complete!</h2>
+              <h2 className="mb-2 text-2xl font-bold">{t('checkout.orderComplete')}</h2>
               <p className="mx-auto mb-6 max-w-md text-gray-600">
-                Thank you for your purchase! Your eSIM has been successfully ordered and activation instructions have been sent to your email.
+                {t('checkout.orderCompleteDesc')}
               </p>
               
               <div className="mb-8 overflow-hidden rounded-xl bg-secondary-light">
                 <div className="border-b border-gray-200 bg-white p-6">
-                  <h3 className="mb-4 text-lg font-semibold">Order Summary</h3>
+                  <h3 className="mb-4 text-lg font-semibold">{t('checkout.summary')}</h3>
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="font-medium">{plan.name}</div>
@@ -122,7 +118,7 @@ const CheckoutPage = () => {
                 </div>
                 
                 <div className="p-6">
-                  <div className="mb-4 text-lg font-semibold">Your eSIM QR Code</div>
+                  <div className="mb-4 text-lg font-semibold">{t('checkout.qrCode')}</div>
                   <div className="mx-auto h-48 w-48 bg-white p-4">
                     <div className="grid h-full w-full grid-cols-7 grid-rows-7 gap-1">
                       {Array.from({ length: 49 }).map((_, i) => (
@@ -136,7 +132,7 @@ const CheckoutPage = () => {
                     </div>
                   </div>
                   <p className="mt-4 text-sm text-gray-600">
-                    Scan this QR code with your phone to install the eSIM
+                    {t('checkout.scanQrCode')}
                   </p>
                 </div>
               </div>
@@ -145,19 +141,21 @@ const CheckoutPage = () => {
                 <div className="rounded-lg bg-success/10 p-4 text-success">
                   <div className="flex items-center space-x-2">
                     <Check size={20} />
-                    <span className="font-medium">Order confirmation sent to {formData.email}</span>
+                    <span className="font-medium">
+                      {t('checkout.confirmationSent')} {formData.email}
+                    </span>
                   </div>
                 </div>
                 
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <Link to="/plans">
                     <Button variant="primary" fullWidth>
-                      Browse More Plans
+                      {t('checkout.browsePlans')}
                     </Button>
                   </Link>
                   <Link to="/account">
                     <Button variant="secondary" fullWidth>
-                      Go to My Account
+                      {t('checkout.viewAccount')}
                     </Button>
                   </Link>
                 </div>
@@ -173,7 +171,7 @@ const CheckoutPage = () => {
     <div className="pt-20">
       <div className="container-custom py-12">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold">Checkout</h1>
+          <h1 className="text-3xl font-bold">{t('checkout.title')}</h1>
         </div>
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
@@ -181,7 +179,7 @@ const CheckoutPage = () => {
           <div className="lg:col-span-1 lg:order-2">
             <div className="sticky top-32 space-y-6">
               <div className="rounded-xl bg-white p-6 shadow-soft">
-                <h2 className="mb-6 text-xl font-semibold">Order Summary</h2>
+                <h2 className="mb-6 text-xl font-semibold">{t('checkout.summary')}</h2>
                 
                 <div className="mb-6">
                   <div className="flex items-center space-x-3">
@@ -203,7 +201,7 @@ const CheckoutPage = () => {
                     </div>
                     <div className="flex items-center space-x-2 text-sm text-gray-600">
                       <Clock size={16} className="text-gray-400" />
-                      <span>{plan.validity} validity</span>
+                      <span>{plan.validity}</span>
                     </div>
                     <div className="flex items-center space-x-2 text-sm text-gray-600">
                       <Globe size={16} className="text-gray-400" />
@@ -216,7 +214,7 @@ const CheckoutPage = () => {
                 <div className="mb-6 border-t border-gray-100 pt-4">
                   <div className="flex items-center space-x-2 mb-2">
                     <Tag size={16} className="text-primary" />
-                    <span className="text-sm font-medium">Have a coupon code?</span>
+                    <span className="text-sm font-medium">{t('checkout.haveCoupon')}</span>
                   </div>
                   
                   {!appliedCoupon ? (
@@ -225,7 +223,7 @@ const CheckoutPage = () => {
                         type="text"
                         value={couponCode}
                         onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
-                        placeholder="Enter code"
+                        placeholder={t('checkout.enterCode')}
                         className="flex-1 rounded-lg border border-gray-300 p-2 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                       />
                       <Button
@@ -234,7 +232,7 @@ const CheckoutPage = () => {
                         onClick={handleApplyCoupon}
                         disabled={!couponCode}
                       >
-                        Apply
+                        {t('checkout.apply')}
                       </Button>
                     </div>
                   ) : (
@@ -261,21 +259,21 @@ const CheckoutPage = () => {
                 
                 <div className="space-y-3 border-t border-gray-100 pt-4">
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Subtotal</span>
+                    <span className="text-gray-600">{t('checkout.subtotal')}</span>
                     <span>€{subtotal.toFixed(2)}</span>
                   </div>
                   {discount > 0 && (
                     <div className="flex justify-between text-sm">
-                      <span className="text-success">Discount</span>
+                      <span className="text-success">{t('checkout.discount')}</span>
                       <span className="text-success">-€{discount.toFixed(2)}</span>
                     </div>
                   )}
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Tax</span>
+                    <span className="text-gray-600">{t('checkout.tax')}</span>
                     <span>€{tax.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between border-t border-gray-100 pt-3 font-semibold">
-                    <span>Total</span>
+                    <span>{t('checkout.total')}</span>
                     <span className="text-lg text-primary">€{total.toFixed(2)}</span>
                   </div>
                 </div>
@@ -284,20 +282,20 @@ const CheckoutPage = () => {
               <div className="rounded-xl bg-white p-6 shadow-soft">
                 <div className="flex items-center space-x-3">
                   <Shield size={20} className="text-success" />
-                  <h3 className="font-medium">Secure Checkout</h3>
+                  <h3 className="font-medium">{t('checkout.secure')}</h3>
                 </div>
                 <div className="mt-4 space-y-3 text-sm text-gray-600">
                   <div className="flex items-center space-x-2">
                     <Check size={16} className="text-success" />
-                    <span>Instant digital delivery</span>
+                    <span>{t('checkout.instantDelivery')}</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Check size={16} className="text-success" />
-                    <span>30-day money-back guarantee</span>
+                    <span>{t('checkout.moneyBack')}</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Check size={16} className="text-success" />
-                    <span>24/7 customer support</span>
+                    <span>{t('checkout.support')}</span>
                   </div>
                 </div>
               </div>
@@ -315,7 +313,7 @@ const CheckoutPage = () => {
                       1
                     </div>
                     <div className="ml-3">
-                      <div className="text-sm font-medium">Contact Details</div>
+                      <div className="text-sm font-medium">{t('checkout.contactDetails')}</div>
                     </div>
                   </div>
                   <div className="h-px flex-1 bg-gray-200 mx-4"></div>
@@ -326,209 +324,93 @@ const CheckoutPage = () => {
                       2
                     </div>
                     <div className="ml-3">
-                      <div className="text-sm font-medium">Payment</div>
+                      <div className="text-sm font-medium">{t('checkout.payment')}</div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {step === 'details' ? (
-                  <>
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                      <div>
-                        <label htmlFor="firstName\" className="mb-1 block text-sm font-medium text-gray-700">
-                          First Name
-                        </label>
-                        <input
-                          type="text"
-                          id="firstName"
-                          name="firstName"
-                          className="w-full rounded-lg border border-gray-300 p-3 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                          value={formData.firstName}
-                          onChange={handleInputChange}
-                          required
-                        />
-                      </div>
-                      
-                      <div>
-                        <label htmlFor="lastName" className="mb-1 block text-sm font-medium text-gray-700">
-                          Last Name
-                        </label>
-                        <input
-                          type="text"
-                          id="lastName"
-                          name="lastName"
-                          className="w-full rounded-lg border border-gray-300 p-3 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                          value={formData.lastName}
-                          onChange={handleInputChange}
-                          required
-                        />
-                      </div>
-                    </div>
-
+              {step === 'details' ? (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div>
-                      <label htmlFor="email" className="mb-1 block text-sm font-medium text-gray-700">
-                        Email Address
+                      <label htmlFor="firstName" className="mb-1 block text-sm font-medium text-gray-700">
+                        {t('checkout.firstName')}
                       </label>
                       <input
-                        type="email"
-                        id="email"
-                        name="email"
+                        type="text"
+                        id="firstName"
+                        name="firstName"
                         className="w-full rounded-lg border border-gray-300 p-3 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                        placeholder="you@example.com"
-                        value={formData.email}
+                        value={formData.firstName}
                         onChange={handleInputChange}
                         required
                       />
-                      <p className="mt-1 text-xs text-gray-500">
-                        We'll send the eSIM activation details to this email
-                      </p>
-                    </div>
-
-                    <div className="rounded-lg bg-blue-50 p-4">
-                      <div className="flex items-start space-x-3">
-                        <AlertCircle className="mt-0.5 text-primary" size={20} />
-                        <div className="flex-1">
-                          <p className="font-medium text-primary">Important Information</p>
-                          <p className="mt-1 text-sm text-gray-600">
-                            Make sure to provide a valid email address. Your eSIM QR code and activation instructions will be sent to this email immediately after purchase.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <Button 
-                      type="submit" 
-                      variant="primary" 
-                      fullWidth 
-                      size="lg"
-                    >
-                      Continue to Payment
-                      <ChevronRight size={18} className="ml-2" />
-                    </Button>
-                  </>
-                ) : (
-                  <>
-                    <div className="pt-4">
-                      <div className="mb-4 flex items-center">
-                        <CreditCard size={20} className="mr-2 text-primary" />
-                        <h3 className="font-semibold">Payment Details</h3>
-                      </div>
-                      
-                      <div className="grid grid-cols-1 gap-6">
-                        <div>
-                          <label htmlFor="cardName" className="mb-1 block text-sm font-medium text-gray-700">
-                            Name on Card
-                          </label>
-                          <input
-                            type="text"
-                            id="cardName"
-                            name="cardName"
-                            className="w-full rounded-lg border border-gray-300 p-3 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                            placeholder="John Doe"
-                            value={formData.cardName}
-                            onChange={handleInputChange}
-                            required
-                          />
-                        </div>
-                        
-                        <div>
-                          <label htmlFor="cardNumber" className="mb-1 block text-sm font-medium text-gray-700">
-                            Card Number
-                          </label>
-                          <input
-                            type="text"
-                            id="cardNumber"
-                            name="cardNumber"
-                            className="w-full rounded-lg border border-gray-300 p-3 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                            placeholder="4242 4242 4242 4242"
-                            value={formData.cardNumber}
-                            onChange={handleInputChange}
-                            required
-                          />
-                        </div>
-                        
-                        <div className="grid grid-cols-2 gap-4">
-                          <div>
-                            <label htmlFor="cardExpiry" className="mb-1 block text-sm font-medium text-gray-700">
-                              Expiration Date
-                            </label>
-                            <input
-                              type="text"
-                              id="cardExpiry"
-                              name="cardExpiry"
-                              className="w-full rounded-lg border border-gray-300 p-3 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                              placeholder="MM/YY"
-                              value={formData.cardExpiry}
-                              onChange={handleInputChange}
-                              required
-                            />
-                          </div>
-                          
-                          <div>
-                            <label htmlFor="cardCvc" className="mb-1 block text-sm font-medium text-gray-700">
-                              CVC
-                            </label>
-                            <input
-                              type="text"
-                              id="cardCvc"
-                              name="cardCvc"
-                              className="w-full rounded-lg border border-gray-300 p-3 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-                              placeholder="123"
-                              value={formData.cardCvc}
-                              onChange={handleInputChange}
-                              required
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start space-x-3">
-                      <input
-                        type="checkbox"
-                        id="agreeToTerms"
-                        name="agreeToTerms"
-                        className="mt-1 rounded border-gray-300"
-                        checked={formData.agreeToTerms}
-                        onChange={handleInputChange}
-                        required
-                      />
-                      <label htmlFor="agreeToTerms" className="text-sm text-gray-600">
-                        I agree to the{' '}
-                        <Link to="/terms" className="text-primary hover:underline">
-                          Terms of Service
-                        </Link>{' '}
-                        and{' '}
-                        <Link to="/privacy" className="text-primary hover:underline">
-                          Privacy Policy
-                        </Link>
-                      </label>
                     </div>
                     
-                    <div className="space-y-4">
-                      <Button 
-                        type="submit" 
-                        variant="primary" 
-                        fullWidth 
-                        size="lg"
-                        isLoading={isProcessing}
-                      >
-                        {isProcessing ? 'Processing...' : 'Complete Purchase'}
-                      </Button>
-                      
-                      <button
-                        type="button"
-                        className="w-full text-center text-sm text-gray-600 hover:text-primary"
-                        onClick={() => setStep('details')}
-                      >
-                        Back to Contact Details
-                      </button>
+                    <div>
+                      <label htmlFor="lastName" className="mb-1 block text-sm font-medium text-gray-700">
+                        {t('checkout.lastName')}
+                      </label>
+                      <input
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        className="w-full rounded-lg border border-gray-300 p-3 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        required
+                      />
                     </div>
-                  </>
-                )}
-              </form>
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="mb-1 block text-sm font-medium text-gray-700">
+                      {t('checkout.email')}
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      className="w-full rounded-lg border border-gray-300 p-3 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                      placeholder="you@example.com"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                    />
+                    <p className="mt-1 text-xs text-gray-500">
+                      {t('checkout.emailNote')}
+                    </p>
+                  </div>
+
+                  <div className="rounded-lg bg-blue-50 p-4">
+                    <div className="flex items-start space-x-3">
+                      <AlertCircle className="mt-0.5 text-primary" size={20} />
+                      <div className="flex-1">
+                        <p className="font-medium text-primary">{t('checkout.important')}</p>
+                        <p className="mt-1 text-sm text-gray-600">
+                          {t('checkout.importantNote')}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <Button 
+                    type="submit" 
+                    variant="primary" 
+                    fullWidth 
+                    size="lg"
+                  >
+                    {t('checkout.continue')}
+                    <ChevronRight size={18} className="ml-2" />
+                  </Button>
+                </form>
+              ) : (
+                <DirectPayment 
+                  plan={plan}
+                  onSuccess={handlePaymentSuccess}
+                />
+              )}
             </div>
           </div>
         </div>
