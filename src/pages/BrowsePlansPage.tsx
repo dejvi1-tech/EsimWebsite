@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Wifi, Clock, Globe } from 'lucide-react';
+import CountryCoverage from '../components/ui/CountryCoverage';
 
 const europeanPlans = [
   {
@@ -52,63 +53,6 @@ const europeanPlans = [
     price: 17.50,
     coverage: 'Europë, SHBA, Shqipëri',
     isOffer: true
-  },
-  {
-    id: 'plan-20gb',
-    name: '20GB / 60 Ditë / Europë, SHBA, Ballkan - 75 Shtete / Data Only',
-    data: '20GB',
-    validity: '60 Ditë',
-    price: 24.99,
-    coverage: 'Europë, SHBA, Ballkan'
-  },
-  {
-    id: 'plan-30gb',
-    name: '30GB / 30 Ditë / Europë, SHBA, Ballkan - 75 Shtete / Data Only',
-    data: '30GB',
-    validity: '30 Ditë',
-    price: 29.99,
-    coverage: 'Europë, SHBA, Ballkan'
-  },
-  {
-    id: 'plan-35gb',
-    name: '35GB EU, 50GB Angli - O2 SUPER (EU, Angli, Zvicër - 48 shtete) / 30 Ditë',
-    data: '35GB EU, 50GB Angli',
-    validity: '30 Ditë',
-    price: 28.00,
-    coverage: 'EU, Angli, Zvicër',
-    special: true
-  },
-  {
-    id: 'plan-50gb',
-    name: '50GB / 30 Ditë / Europë, SHBA, Ballkan - 75 Shtete / Data Only',
-    data: '50GB',
-    validity: '30 Ditë',
-    price: 35.90,
-    coverage: 'Europë, SHBA, Ballkan'
-  },
-  {
-    id: 'plan-unlimited-7',
-    name: 'Pa Limit / 7 Ditë / Europë, SHBA, Shqipëri - 40 Shtete / Data Only',
-    data: 'Pa Limit',
-    validity: '7 Ditë',
-    price: 23.00,
-    coverage: 'Europë, SHBA, Shqipëri'
-  },
-  {
-    id: 'plan-unlimited-15',
-    name: 'Pa Limit / 15 Ditë / Europë, SHBA, Shqipëri - 40 Shtete / Data Only',
-    data: 'Pa Limit',
-    validity: '15 Ditë',
-    price: 35.00,
-    coverage: 'Europë, SHBA, Shqipëri'
-  },
-  {
-    id: 'plan-unlimited-30',
-    name: 'Pa Limit / 30 Ditë / Europë, SHBA, Shqipëri - 40 Shtete / Data Only',
-    data: 'Pa Limit',
-    validity: '30 Ditë',
-    price: 59.99,
-    coverage: 'Europë, SHBA, Shqipëri'
   }
 ];
 
@@ -124,6 +68,16 @@ const BrowsePlansPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
       <div className="container-custom py-12">
+        {/* Coverage Information */}
+        <div className="mb-8 rounded-xl bg-white p-6 shadow-lg">
+          <h2 className="mb-4 text-xl font-semibold">Çfarë përfshijnë paketat?</h2>
+          <p className="mb-4 text-gray-600">
+            Paketat Data Only përfshijnë internet me shpejtësi të lartë në të gjithë Europën, duke përfshirë Zvicër, Angli dhe Turqi.
+          </p>
+          <CountryCoverage title="Shtetet e përfshira tek paketat Data Only (75 shtete)" />
+        </div>
+
+        {/* Plans */}
         <div className="rounded-xl bg-white p-6 shadow-lg">
           <div className="mb-6 flex items-center space-x-3">
             <img
