@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { Country } from '../../data/countries';
-import CountrySearch from '../search/CountrySearch';
+import CountrySearch from '../search/CountrySearch.tsx';
 
 const Hero = () => {
   const { t } = useLanguage();
