@@ -23,7 +23,7 @@ const steps: OnboardingStep[] = [
     id: 2,
     title: "Where are you traveling?",
     description: "Choose your destination and I'll show you the best available plans.",
-    icon: <Globe className="text-primary" size={32} />,
+    icon: <Globe className="text-primary\" size={32} />,
     animation: "fade-in slide-up"
   },
   {
