@@ -80,7 +80,7 @@ const translations = {
     'checkout.firstName': 'First Name',
     'checkout.lastName': 'Last Name',
     'checkout.email': 'Email Address',
-    'checkout.emailNote': 'We'll send your eSIM details to this email',
+    'checkout.emailNote': 'We\'ll send your eSIM details to this email',
     'checkout.important': 'Important Note',
     'checkout.importantNote': 'Please ensure your device is eSIM compatible before purchase',
     'checkout.continue': 'Continue to Payment',
