@@ -1,18 +1,20 @@
 import { ArrowRight } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import { getPopularPlans } from '../../data/plans';
+import { plans } from '../../data/plans';
 import PlanCard from '../plans/PlanCard';
 import Button from '../ui/Button';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 const PopularPlans = () => {
-  const popularPlans = getPopularPlans();
   const { t } = useLanguage();
   const navigate = useNavigate();
 
   const handleBuyNow = (planId: string) => {
-    navigate(`/checkout?plan=${planId}`);
+    navigate(`/checkout?plan=${planId}&step=payment`);
   };
+
+  // Show first 4 plans
+  const displayedPlans = plans.slice(0, 4);
 
   return (
     <section className="bg-secondary py-20">
@@ -25,11 +27,11 @@ const PopularPlans = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {popularPlans.map((plan) => (
+          {displayedPlans.map((plan) => (
             <PlanCard 
               key={plan.id} 
               plan={plan} 
-              featured={true}
+              featured={plan.popular}
               onBuyNow={() => handleBuyNow(plan.id)}
             />
           ))}
