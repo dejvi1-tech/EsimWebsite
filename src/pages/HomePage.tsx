@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import Hero from '../components/home/Hero';
 import Features from '../components/home/Features';
 import ConnectInstantly from '../components/home/ConnectInstantly';
 import PopularPlans from '../components/home/PopularPlans';
 import HowItWorks from '../components/home/HowItWorks';
 import Testimonials from '../components/home/Testimonials';
+import AIOnboarding from '../components/onboarding/AIOnboarding';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Button from '../components/ui/Button';
@@ -11,9 +13,18 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 const HomePage = () => {
   const { t } = useLanguage();
+  const [showOnboarding] = useState(() => {
+    const hasSeenOnboarding = localStorage.getItem('hasSeenOnboarding');
+    if (!hasSeenOnboarding) {
+      localStorage.setItem('hasSeenOnboarding', 'true');
+      return true;
+    }
+    return false;
+  });
 
   return (
     <div>
+      {showOnboarding && <AIOnboarding />}
       <Hero />
       <PopularPlans />
       <Features />
