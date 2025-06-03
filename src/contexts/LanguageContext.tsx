@@ -39,6 +39,11 @@ const translations = {
     'testimonials.title': 'What Our Customers Say',
     'testimonials.subtitle': 'Read what travelers around the world think about our eSIM service. Real experiences from real customers.',
 
+    // CTA Section
+    'cta.title': 'Ready to Stay Connected?',
+    'cta.subtitle': 'Choose from our wide range of eSIM plans and enjoy seamless connectivity on your next adventure.',
+    'cta.button': 'Get Your eSIM Now',
+
     // Rest of the translations...
   },
   sq: {
@@ -70,6 +75,11 @@ const translations = {
     // Testimonials Section
     'testimonials.title': 'Çfarë Thonë Klientët Tanë',
     'testimonials.subtitle': 'Lexoni se çfarë mendojnë udhëtarët nga e gjithë bota për shërbimin tonë eSIM. Përvoja reale nga klientë realë.',
+
+    // CTA Section
+    'cta.title': 'Gati për të Qëndruar të Lidhur?',
+    'cta.subtitle': 'Zgjidhni nga gama jonë e gjerë e planeve eSIM dhe shijoni lidhje të pandërprerë në aventurën tuaj të radhës.',
+    'cta.button': 'Merrni eSIM-in Tuaj Tani',
 
     // Rest of the translations...
   }
