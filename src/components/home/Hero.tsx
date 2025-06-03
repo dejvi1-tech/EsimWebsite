@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { Country } from '../../data/countries';
-import CountrySearch from '../search/CountrySearch.tsx';
+import CountrySearch from '../search/CountrySearch';
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -12,7 +12,6 @@ const Hero = () => {
 
   const handleCountrySelect = (country: Country) => {
     setSelectedCountry(country);
-    // You can add additional logic here, like redirecting to plans page with country filter
   };
 
   return (
@@ -32,28 +31,6 @@ const Hero = () => {
               onCountrySelect={handleCountrySelect}
               selectedCountry={selectedCountry}
             />
-          </div>
-
-          <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 md:justify-center">
-            <Link to="/plans">
-              <Button 
-                variant="accent" 
-                size="lg" 
-                className="group"
-              >
-                {t('hero.browsePlans')}
-                <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
-            <Link to="/faq">
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="border-white/30 bg-white/10 text-white hover:bg-white/20"
-              >
-                {t('hero.howItWorks')}
-              </Button>
-            </Link>
           </div>
         </div>
       </div>
