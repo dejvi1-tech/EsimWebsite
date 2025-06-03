@@ -1,10 +1,19 @@
+import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { Country } from '../../data/countries';
+import CountrySearch from '../search/CountrySearch';
 
 const Hero = () => {
   const { t } = useLanguage();
+  const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
+
+  const handleCountrySelect = (country: Country) => {
+    setSelectedCountry(country);
+    // You can add additional logic here, like redirecting to plans page with country filter
+  };
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-r from-primary to-primary-dark pt-20 text-white">
@@ -16,6 +25,15 @@ const Hero = () => {
           <p className="mb-8 text-lg text-white/90 md:text-xl">
             {t('hero.subtitle')}
           </p>
+
+          {/* Country Search */}
+          <div className="mb-8">
+            <CountrySearch 
+              onCountrySelect={handleCountrySelect}
+              selectedCountry={selectedCountry}
+            />
+          </div>
+
           <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 md:justify-center">
             <Link to="/plans">
               <Button 
