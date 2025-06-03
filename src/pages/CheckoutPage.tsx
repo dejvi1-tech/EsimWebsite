@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { getPlanById } from '../data/plans';
 import Button from '../components/ui/Button';
 import { Check, CreditCard, AlertCircle, Globe, Clock, Signal, ChevronRight, Shield, X, Tag } from 'lucide-react';
+import CountryCoverage from '../components/ui/CountryCoverage';
 
 // Mock coupon codes
 const validCoupons = {
@@ -212,6 +213,11 @@ const CheckoutPage = () => {
                   </div>
                 </div>
 
+                {/* Add CountryCoverage component here */}
+                <div className="mb-6 border-t border-gray-100 pt-4">
+                  <CountryCoverage title="Coverage Details" />
+                </div>
+
                 {/* Coupon Code Section */}
                 <div className="mb-6 border-t border-gray-100 pt-4">
                   <div className="flex items-center space-x-2 mb-2">
@@ -337,7 +343,7 @@ const CheckoutPage = () => {
                   <>
                     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                       <div>
-                        <label htmlFor="firstName\" className="mb-1 block text-sm font-medium text-gray-700">
+                        <label htmlFor="firstName\" className=\"mb-1 block text-sm font-medium text-gray-700">
                           First Name
                         </label>
                         <input
