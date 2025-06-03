@@ -28,14 +28,8 @@ const DirectPayment = ({ plan, onSuccess }: DirectPaymentProps) => {
     // Simulate payment processing
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-    // In a real implementation, you would:
-    // 1. Validate card details
-    // 2. Send to your payment processor
-    // 3. Handle the response
-
     setIsProcessing(false);
     onSuccess();
-    navigate('/account');
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -63,16 +57,16 @@ const DirectPayment = ({ plan, onSuccess }: DirectPaymentProps) => {
   return (
     <div className="rounded-xl bg-white p-6 shadow-soft">
       <div className="mb-6">
-        <h3 className="text-xl font-semibold">{t('checkout.secure')}</h3>
+        <h3 className="text-xl font-semibold">Pagesa e Sigurt</h3>
         <p className="text-sm text-gray-600">
-          {t('checkout.secureDesc')}
+          Informacioni juaj i pagesës është i sigurt
         </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label className="mb-1 block text-sm font-medium text-gray-700">
-            {t('checkout.cardName')}
+            Emri në Kartë
           </label>
           <input
             type="text"
@@ -87,7 +81,7 @@ const DirectPayment = ({ plan, onSuccess }: DirectPaymentProps) => {
 
         <div>
           <label className="mb-1 block text-sm font-medium text-gray-700">
-            {t('checkout.cardNumber')}
+            Numri i Kartës
           </label>
           <div className="relative">
             <input
@@ -107,7 +101,7 @@ const DirectPayment = ({ plan, onSuccess }: DirectPaymentProps) => {
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="mb-1 block text-sm font-medium text-gray-700">
-              {t('checkout.cardExpiry')}
+              Data e Skadimit
             </label>
             <input
               type="text"
@@ -123,7 +117,7 @@ const DirectPayment = ({ plan, onSuccess }: DirectPaymentProps) => {
 
           <div>
             <label className="mb-1 block text-sm font-medium text-gray-700">
-              {t('checkout.cardCvc')}
+              CVC
             </label>
             <input
               type="text"
@@ -140,7 +134,7 @@ const DirectPayment = ({ plan, onSuccess }: DirectPaymentProps) => {
 
         <div className="rounded-lg bg-gray-50 p-4">
           <div className="flex items-center justify-between">
-            <span className="text-gray-600">{t('checkout.total')}:</span>
+            <span className="text-gray-600">Totali:</span>
             <span className="text-xl font-bold text-primary">€{plan.price}</span>
           </div>
         </div>
@@ -152,12 +146,12 @@ const DirectPayment = ({ plan, onSuccess }: DirectPaymentProps) => {
             fullWidth
             isLoading={isProcessing}
           >
-            {isProcessing ? t('checkout.processing') : t('checkout.pay')}
+            {isProcessing ? 'Duke procesuar...' : `Paguaj €${plan.price}`}
           </Button>
 
           <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
             <Check size={16} className="text-success" />
-            <span>{t('checkout.securePayment')}</span>
+            <span>Procesim i sigurt i pagesës</span>
           </div>
         </div>
       </form>
