@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Wifi, Clock, Globe } from 'lucide-react';
 import CountryCoverage from '../components/ui/CountryCoverage';
 import { useLanguage } from '../contexts/LanguageContext';
-
-// ... (keep the europeanPlans array as is)
+import { plans as europeanPlans } from '../data/plans';
 
 const BrowsePlansPage = () => {
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
