@@ -26,7 +26,7 @@ export const plans: Plan[] = [
     price: 2.90,
     currency: 'EUR',
     features: ['4G/5G Coverage', 'Easy Activation', 'No Contract'],
-    coverage: ['Europe', 'USA', 'Balkans'],
+    coverage: ['Albania', 'Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'United Kingdom', 'United States'],
     provider: 'Multiple European Networks',
     image: 'https://images.pexels.com/photos/2570063/pexels-photo-2570063.jpeg'
   },
@@ -40,7 +40,7 @@ export const plans: Plan[] = [
     price: 6.99,
     currency: 'EUR',
     features: ['4G/5G Coverage', 'Easy Activation', 'No Contract'],
-    coverage: ['Europe', 'USA', 'Balkans'],
+    coverage: ['Albania', 'Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'United Kingdom', 'United States'],
     provider: 'Multiple European Networks',
     image: 'https://images.pexels.com/photos/2570063/pexels-photo-2570063.jpeg'
   },
@@ -54,7 +54,7 @@ export const plans: Plan[] = [
     price: 9.99,
     currency: 'EUR',
     features: ['4G/5G Coverage', 'Easy Activation', 'No Contract', '1GB Extra Free'],
-    coverage: ['Europe', 'USA', 'Balkans'],
+    coverage: ['Albania', 'Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'United Kingdom', 'United States'],
     provider: 'Multiple European Networks',
     image: 'https://images.pexels.com/photos/2570063/pexels-photo-2570063.jpeg'
   },
@@ -68,7 +68,7 @@ export const plans: Plan[] = [
     price: 14.99,
     currency: 'EUR',
     features: ['4G/5G Coverage', 'Easy Activation', 'No Contract', '2GB Extra Free'],
-    coverage: ['Europe', 'USA', 'Balkans'],
+    coverage: ['Albania', 'Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'United Kingdom', 'United States'],
     provider: 'Multiple European Networks',
     image: 'https://images.pexels.com/photos/2570063/pexels-photo-2570063.jpeg'
   },
@@ -83,7 +83,7 @@ export const plans: Plan[] = [
     currency: 'EUR',
     features: ['4G/5G Coverage', 'Easy Activation', 'No Contract', '5GB Extra Free'],
     popular: true,
-    coverage: ['Europe', 'USA', 'Albania'],
+    coverage: ['Albania', 'Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'United Kingdom', 'United States'],
     provider: 'Multiple European Networks',
     image: 'https://images.pexels.com/photos/2570063/pexels-photo-2570063.jpeg'
   },
@@ -98,7 +98,7 @@ export const plans: Plan[] = [
     currency: 'EUR',
     features: ['4G/5G Coverage', 'Easy Activation', 'No Contract', '3GB Extra Free'],
     popular: true,
-    coverage: ['Europe', 'USA', 'Albania'],
+    coverage: ['Albania', 'Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'United Kingdom', 'United States'],
     provider: 'Multiple European Networks',
     image: 'https://images.pexels.com/photos/2570063/pexels-photo-2570063.jpeg'
   },
@@ -112,7 +112,7 @@ export const plans: Plan[] = [
     price: 24.99,
     currency: 'EUR',
     features: ['4G/5G Coverage', 'Easy Activation', 'No Contract'],
-    coverage: ['Europe', 'USA', 'Balkans'],
+    coverage: ['Albania', 'Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'United Kingdom', 'United States'],
     provider: 'Multiple European Networks',
     image: 'https://images.pexels.com/photos/2570063/pexels-photo-2570063.jpeg'
   },
@@ -126,7 +126,7 @@ export const plans: Plan[] = [
     price: 29.99,
     currency: 'EUR',
     features: ['4G/5G Coverage', 'Easy Activation', 'No Contract'],
-    coverage: ['Europe', 'USA', 'Balkans'],
+    coverage: ['Albania', 'Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'United Kingdom', 'United States'],
     provider: 'Multiple European Networks',
     image: 'https://images.pexels.com/photos/2570063/pexels-photo-2570063.jpeg'
   },
@@ -143,10 +143,9 @@ export const plans: Plan[] = [
       'UK +44 Number',
       'Unlimited Local Calls',
       'Unlimited Incoming SMS',
-      'Active for 30 days from purchase',
-      '*Not available in Balkans'
+      'Active for 30 days from purchase'
     ],
-    coverage: ['EU', 'UK', 'Switzerland'],
+    coverage: ['Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'United Kingdom', 'Switzerland'],
     provider: 'O2 Network',
     image: 'https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg'
   },
@@ -160,7 +159,7 @@ export const plans: Plan[] = [
     price: 35.90,
     currency: 'EUR',
     features: ['4G/5G Coverage', 'Easy Activation', 'No Contract'],
-    coverage: ['Europe', 'USA', 'Balkans'],
+    coverage: ['Albania', 'Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'United Kingdom', 'United States'],
     provider: 'Multiple European Networks',
     image: 'https://images.pexels.com/photos/2570063/pexels-photo-2570063.jpeg'
   },
@@ -174,7 +173,7 @@ export const plans: Plan[] = [
     price: 23.00,
     currency: 'EUR',
     features: ['Unlimited Data', '4G/5G Coverage', 'Easy Activation', 'No Contract'],
-    coverage: ['Europe', 'USA', 'Albania'],
+    coverage: ['Albania', 'Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'United Kingdom', 'United States'],
     provider: 'Multiple European Networks',
     image: 'https://images.pexels.com/photos/2570063/pexels-photo-2570063.jpeg'
   },
@@ -188,7 +187,7 @@ export const plans: Plan[] = [
     price: 35.00,
     currency: 'EUR',
     features: ['Unlimited Data', '4G/5G Coverage', 'Easy Activation', 'No Contract'],
-    coverage: ['Europe', 'USA', 'Albania'],
+    coverage: ['Albania', 'Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'United Kingdom', 'United States'],
     provider: 'Multiple European Networks',
     image: 'https://images.pexels.com/photos/2570063/pexels-photo-2570063.jpeg'
   },
@@ -202,7 +201,7 @@ export const plans: Plan[] = [
     price: 59.99,
     currency: 'EUR',
     features: ['Unlimited Data', '4G/5G Coverage', 'Easy Activation', 'No Contract'],
-    coverage: ['Europe', 'USA', 'Albania'],
+    coverage: ['Albania', 'Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'United Kingdom', 'United States'],
     provider: 'Multiple European Networks',
     image: 'https://images.pexels.com/photos/2570063/pexels-photo-2570063.jpeg'
   }
