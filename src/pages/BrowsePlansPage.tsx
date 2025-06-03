@@ -118,12 +118,8 @@ const BrowsePlansPage = () => {
 
   const handlePlanSelect = (planId: string) => {
     setSelectedPlan(planId);
-  };
-
-  const handleContinue = () => {
-    if (selectedPlan) {
-      navigate(`/checkout?plan=${selectedPlan}`);
-    }
+    // Automatically navigate to checkout when a plan is selected
+    navigate(`/checkout?plan=${planId}&step=payment`);
   };
 
   return (
@@ -146,13 +142,14 @@ const BrowsePlansPage = () => {
                 className={`relative flex cursor-pointer items-center rounded-lg border-2 p-4 transition-all hover:border-primary/50 ${
                   selectedPlan === plan.id ? 'border-primary bg-primary/5' : 'border-gray-200'
                 }`}
+                onClick={() => handlePlanSelect(plan.id)}
               >
                 <input
                   type="radio"
                   name="plan"
                   value={plan.id}
                   checked={selectedPlan === plan.id}
-                  onChange={() => handlePlanSelect(plan.id)}
+                  onChange={() => {}}
                   className="h-4 w-4 text-primary"
                 />
                 
@@ -191,20 +188,6 @@ const BrowsePlansPage = () => {
                 </div>
               </label>
             ))}
-          </div>
-
-          <div className="mt-6 flex justify-end">
-            <button
-              onClick={handleContinue}
-              disabled={!selectedPlan}
-              className={`rounded-lg px-6 py-2 text-white transition-colors ${
-                selectedPlan
-                  ? 'bg-primary hover:bg-primary-dark'
-                  : 'cursor-not-allowed bg-gray-300'
-              }`}
-            >
-              Continue
-            </button>
           </div>
         </div>
       </div>
