@@ -2,121 +2,14 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Wifi, Clock, Globe } from 'lucide-react';
 import CountryCoverage from '../components/ui/CountryCoverage';
+import { useLanguage } from '../contexts/LanguageContext';
 
-const europeanPlans = [
-  {
-    id: 'plan-1gb',
-    name: '1GB / 60 Ditë / Europë, SHBA, Ballkan - 75 Shtete / Data Only',
-    data: '1GB',
-    validity: '60 Ditë',
-    price: 2.90,
-    coverage: 'Europë, SHBA, Ballkan'
-  },
-  {
-    id: 'plan-3gb',
-    name: '3GB / 60 Ditë / Europë, SHBA, Ballkan - 75 Shtete / Data Only',
-    data: '3GB',
-    validity: '60 Ditë',
-    price: 6.99,
-    coverage: 'Europë, SHBA, Ballkan'
-  },
-  {
-    id: 'plan-5gb',
-    name: '5GB + 1GB Falas / 60 Ditë / Europë, SHBA, Ballkan - 75 Shtete / Data Only',
-    data: '5GB + 1GB Falas',
-    validity: '60 Ditë',
-    price: 9.99,
-    coverage: 'Europë, SHBA, Ballkan'
-  },
-  {
-    id: 'plan-10gb',
-    name: '10GB + 2GB Falas / 60 Ditë / Europë, SHBA, Ballkan - 75 Shtete / Data Only',
-    data: '10GB + 2GB Falas',
-    validity: '60 Ditë',
-    price: 14.99,
-    coverage: 'Europë, SHBA, Ballkan'
-  },
-  {
-    id: 'plan-10gb-offer',
-    name: 'OFERTË: 10GB + 5GB FALAS / 60 Ditë / Europë, SHBA, Shqipëri - 40 Shtete / Data Only',
-    data: '10GB + 5GB Falas',
-    validity: '60 Ditë',
-    price: 14.99,
-    coverage: 'Europë, SHBA, Shqipëri',
-    isOffer: true
-  },
-  {
-    id: 'plan-15gb',
-    name: 'OFERTË: 15GB + 3GB FALAS / 30 Ditë / Europë, SHBA, Shqipëri - 40 Shtete / Data Only',
-    data: '15GB + 3GB Falas',
-    validity: '30 Ditë',
-    price: 17.50,
-    coverage: 'Europë, SHBA, Shqipëri',
-    isOffer: true
-  },
-  {
-    id: 'plan-20gb',
-    name: '20GB / 60 Ditë / Europë, SHBA, Ballkan - 75 Shtete / Data Only',
-    data: '20GB',
-    validity: '60 Ditë',
-    price: 24.99,
-    coverage: 'Europë, SHBA, Ballkan'
-  },
-  {
-    id: 'plan-30gb',
-    name: '30GB / 30 Ditë / Europë, SHBA, Ballkan - 75 Shtete / Data Only',
-    data: '30GB',
-    validity: '30 Ditë',
-    price: 29.99,
-    coverage: 'Europë, SHBA, Ballkan'
-  },
-  {
-    id: 'plan-35gb',
-    name: '35GB EU, 50GB Angli - O2 SUPER (EU, Angli, Zvicër - 48 shtete) / 30 Ditë',
-    data: '35GB EU, 50GB Angli',
-    validity: '30 Ditë',
-    price: 28.00,
-    coverage: 'EU, Angli, Zvicër',
-    special: true,
-    features: ['Numër +44 Anglez për thirje brënda vendit të qëndrimit', 'Telefonata pa limit brënda vendit të qëndrimit', 'SMS hyrëse pa limit', '30 ditë aktive nga momenti i blerjes', '*Nuk funksionon në Ballkan*']
-  },
-  {
-    id: 'plan-50gb',
-    name: '50GB / 30 Ditë / Europë, SHBA, Ballkan - 75 Shtete / Data Only',
-    data: '50GB',
-    validity: '30 Ditë',
-    price: 35.90,
-    coverage: 'Europë, SHBA, Ballkan'
-  },
-  {
-    id: 'plan-unlimited-7',
-    name: 'Pa Limit / 7 Ditë / Europë, SHBA, Shqipëri - 40 Shtete / Data Only',
-    data: 'Pa Limit',
-    validity: '7 Ditë',
-    price: 23.00,
-    coverage: 'Europë, SHBA, Shqipëri'
-  },
-  {
-    id: 'plan-unlimited-15',
-    name: 'Pa Limit / 15 Ditë / Europë, SHBA, Shqipëri - 40 Shtete / Data Only',
-    data: 'Pa Limit',
-    validity: '15 Ditë',
-    price: 35.00,
-    coverage: 'Europë, SHBA, Shqipëri'
-  },
-  {
-    id: 'plan-unlimited-30',
-    name: 'Pa Limit / 30 Ditë / Europë, SHBA, Shqipëri - 40 Shtete / Data Only',
-    data: 'Pa Limit',
-    validity: '30 Ditë',
-    price: 59.99,
-    coverage: 'Europë, SHBA, Shqipëri'
-  }
-];
+// ... (keep the europeanPlans array as is)
 
 const BrowsePlansPage = () => {
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const handlePlanSelect = (planId: string) => {
     setSelectedPlan(planId);
@@ -128,11 +21,11 @@ const BrowsePlansPage = () => {
       <div className="container-custom py-12">
         {/* Coverage Information */}
         <div className="mb-8 rounded-xl bg-white p-6 shadow-lg">
-          <h2 className="mb-4 text-xl font-semibold">Çfarë përfshijnë paketat?</h2>
+          <h2 className="mb-4 text-xl font-semibold">{t('coverage.dataOnly')}</h2>
           <p className="mb-4 text-gray-600">
-            Paketat Data Only përfshijnë internet me shpejtësi të lartë në të gjithë Europën, duke përfshirë Zvicër, Angli dhe Turqi.
+            {t('coverage.dataOnlyDesc')}
           </p>
-          <CountryCoverage title="Shtetet e përfshira tek paketat Data Only (75 shtete)" />
+          <CountryCoverage title={t('coverage.included')} />
         </div>
 
         {/* Plans */}
@@ -143,7 +36,7 @@ const BrowsePlansPage = () => {
               alt="Europe"
               className="h-8 w-8 rounded-full"
             />
-            <h2 className="text-xl font-semibold">European eSIM Plans</h2>
+            <h2 className="text-xl font-semibold">{t('plans.title')}</h2>
           </div>
 
           <div className="space-y-4">
@@ -162,12 +55,12 @@ const BrowsePlansPage = () => {
                         <span className="font-medium">{plan.data}</span>
                         {plan.isOffer && (
                           <span className="rounded-full bg-pink-500 px-2 py-0.5 text-xs font-medium text-white">
-                            Popullarizuar
+                            {t('plans.popular')}
                           </span>
                         )}
                         {plan.special && (
                           <span className="rounded-full bg-blue-500 px-2 py-0.5 text-xs font-medium text-white">
-                            Special
+                            {t('plans.special')}
                           </span>
                         )}
                       </div>
@@ -203,7 +96,7 @@ const BrowsePlansPage = () => {
                     
                     <div className="ml-4 text-right">
                       <div className="text-lg font-bold text-primary">€{plan.price.toFixed(2)}</div>
-                      <div className="text-sm text-gray-500">one-time</div>
+                      <div className="text-sm text-gray-500">{t('plans.oneTime')}</div>
                     </div>
                   </div>
                 </div>

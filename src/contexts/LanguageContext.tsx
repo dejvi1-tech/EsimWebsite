@@ -41,33 +41,42 @@ const translations = {
     'features.secureConnection': 'Secure Connection',
     'features.secureConnectionDesc': 'Encrypted connection for safe and private internet usage anywhere.',
 
-    // Popular Plans Section
-    'plans.title': 'Popular eSIM Plans',
-    'plans.subtitle': 'Our most popular data plans for travelers. Fast activation, reliable connection, and affordable prices.',
+    // Plans Section
+    'plans.title': 'Available eSIM Plans',
+    'plans.subtitle': 'Choose from our wide range of data plans tailored for your travel needs',
     'plans.viewAll': 'View All Plans',
     'plans.from': 'From',
     'plans.validity': 'Valid for',
     'plans.data': 'Data',
     'plans.viewDetails': 'View Details',
+    'plans.buyNow': 'Buy Now',
+    'plans.popular': 'Popular',
+    'plans.special': 'Special',
+    'plans.unlimited': 'Unlimited',
+    'plans.coverage': 'Coverage',
+    'plans.oneTime': 'one-time',
 
-    // How It Works Section
-    'howItWorks.title': 'How It Works',
-    'howItWorks.subtitle': 'Getting connected with our eSIM service is quick and easy. Just follow these simple steps:',
-    'howItWorks.step1': 'Choose Your Plan',
-    'howItWorks.step1Desc': 'Browse our available plans based on your destination and data needs.',
-    'howItWorks.step2': 'Scan QR Code',
-    'howItWorks.step2Desc': 'After purchase, scan the QR code with your eSIM-compatible device.',
-    'howItWorks.step3': 'Connect & Enjoy',
-    'howItWorks.step3Desc': 'Activate your plan and enjoy reliable internet connection anywhere.',
+    // Coverage Section
+    'coverage.title': 'Countries Covered',
+    'coverage.subtitle': 'Our eSIM works in the following countries',
+    'coverage.included': 'Included Countries',
+    'coverage.dataOnly': 'What do Data Only packages include?',
+    'coverage.dataOnlyDesc': 'Data Only packages include high-speed internet across Europe, including Switzerland, UK, and Turkey.',
+    'coverage.countries': 'countries',
 
-    // Testimonials Section
-    'testimonials.title': 'What Our Customers Say',
-    'testimonials.subtitle': "Don't just take our word for it. Here's what travelers around the world think about our eSIM service.",
+    // Checkout
+    'checkout.title': 'Checkout',
+    'checkout.summary': 'Order Summary',
+    'checkout.total': 'Total',
+    'checkout.proceed': 'Proceed to Payment',
+    'checkout.secure': 'Secure Checkout',
 
-    // CTA Section
-    'cta.title': 'Ready to Stay Connected?',
-    'cta.subtitle': 'Choose from our wide range of eSIM plans and enjoy seamless connectivity on your next adventure.',
-    'cta.button': 'Get Your eSIM Now',
+    // Account
+    'account.title': 'My Account',
+    'account.orders': 'Order History',
+    'account.esims': 'My eSIMs',
+    'account.profile': 'Profile',
+    'account.settings': 'Settings',
 
     // Footer
     'footer.quickLinks': 'Quick Links',
@@ -115,33 +124,42 @@ const translations = {
     'features.secureConnection': 'Lidhje e Sigurt',
     'features.secureConnectionDesc': 'Lidhje e enkriptuar për përdorim të sigurt dhe privat të internetit kudo.',
 
-    // Popular Plans Section
-    'plans.title': 'Planet e Popullarizuara eSIM',
-    'plans.subtitle': 'Planet tona më të popullarizuara të të dhënave për udhëtarët. Aktivizim i shpejtë, lidhje e besueshme dhe çmime të përballueshme.',
+    // Plans Section
+    'plans.title': 'Planet eSIM të Disponueshme',
+    'plans.subtitle': 'Zgjidhni nga gama jonë e gjerë e planeve të të dhënave të përshtatura për nevojat tuaja të udhëtimit',
     'plans.viewAll': 'Shiko të Gjitha Planet',
     'plans.from': 'Nga',
     'plans.validity': 'I vlefshëm për',
     'plans.data': 'Të dhëna',
     'plans.viewDetails': 'Shiko Detajet',
+    'plans.buyNow': 'Bli Tani',
+    'plans.popular': 'Popullarizuar',
+    'plans.special': 'Special',
+    'plans.unlimited': 'Pa Limit',
+    'plans.coverage': 'Mbulimi',
+    'plans.oneTime': 'një herë',
 
-    // How It Works Section
-    'howItWorks.title': 'Si Funksionon',
-    'howItWorks.subtitle': 'Lidhja me shërbimin tonë eSIM është e shpejtë dhe e lehtë. Thjesht ndiqni këto hapa të thjeshta:',
-    'howItWorks.step1': 'Zgjidhni Planin Tuaj',
-    'howItWorks.step1Desc': 'Shfletoni planet e disponueshme bazuar në destinacionin dhe nevojat tuaja për të dhëna.',
-    'howItWorks.step2': 'Skanoni Kodin QR',
-    'howItWorks.step2Desc': 'Pas blerjes, skanoni kodin QR me pajisjen tuaj të përputhshme me eSIM.',
-    'howItWorks.step3': 'Lidhuni & Shijoni',
-    'howItWorks.step3Desc': 'Aktivizoni planin tuaj dhe shijoni lidhje të besueshme interneti kudo.',
+    // Coverage Section
+    'coverage.title': 'Shtetet e Mbuluara',
+    'coverage.subtitle': 'eSIM jonë funksionon në shtetet e mëposhtme',
+    'coverage.included': 'Shtetet e Përfshira',
+    'coverage.dataOnly': 'Çfarë përfshijnë paketat Data Only?',
+    'coverage.dataOnlyDesc': 'Paketat Data Only përfshijnë internet me shpejtësi të lartë në të gjithë Europën, duke përfshirë Zvicër, Angli dhe Turqi.',
+    'coverage.countries': 'shtete',
 
-    // Testimonials Section
-    'testimonials.title': 'Çfarë Thonë Klientët Tanë',
-    'testimonials.subtitle': 'Mos merrni vetëm fjalën tonë. Ja çfarë mendojnë udhëtarët nga e gjithë bota për shërbimin tonë eSIM.',
+    // Checkout
+    'checkout.title': 'Pagesa',
+    'checkout.summary': 'Përmbledhja e Porosisë',
+    'checkout.total': 'Totali',
+    'checkout.proceed': 'Vazhdo me Pagesën',
+    'checkout.secure': 'Pagesë e Sigurt',
 
-    // CTA Section
-    'cta.title': 'Gati për të Qëndruar të Lidhur?',
-    'cta.subtitle': 'Zgjidhni nga gama jonë e gjerë e planeve eSIM dhe shijoni lidhje të pandërprerë në aventurën tuaj të radhës.',
-    'cta.button': 'Merrni eSIM-in Tuaj Tani',
+    // Account
+    'account.title': 'Llogaria Ime',
+    'account.orders': 'Historiku i Porosive',
+    'account.esims': 'eSIM-et e Mia',
+    'account.profile': 'Profili',
+    'account.settings': 'Cilësimet',
 
     // Footer
     'footer.quickLinks': 'Lidhje të Shpejta',
@@ -162,7 +180,7 @@ const translations = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>('sq');
 
   const t = (key: string): string => {
     return translations[language][key] || key;
