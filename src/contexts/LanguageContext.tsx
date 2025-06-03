@@ -35,6 +35,10 @@ const translations = {
     'features.secureConnection': 'Secure Connection',
     'features.secureConnectionDesc': 'Encrypted connection for safe and private internet usage anywhere.',
 
+    // Testimonials Section
+    'testimonials.title': 'What Our Customers Say',
+    'testimonials.subtitle': 'Read what travelers around the world think about our eSIM service. Real experiences from real customers.',
+
     // Rest of the translations...
   },
   sq: {
@@ -62,6 +66,10 @@ const translations = {
     'features.easySetupDesc': 'Proces i thjeshtë instalimi i përputhshëm me të gjitha pajisjet që mbështesin eSIM.',
     'features.secureConnection': 'Lidhje e Sigurt',
     'features.secureConnectionDesc': 'Lidhje e enkriptuar për përdorim të sigurt dhe privat të internetit kudo.',
+
+    // Testimonials Section
+    'testimonials.title': 'Çfarë Thonë Klientët Tanë',
+    'testimonials.subtitle': 'Lexoni se çfarë mendojnë udhëtarët nga e gjithë bota për shërbimin tonë eSIM. Përvoja reale nga klientë realë.',
 
     // Rest of the translations...
   }
