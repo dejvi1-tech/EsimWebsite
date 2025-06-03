@@ -1,18 +1,10 @@
-import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { Country } from '../../data/countries';
-import CountrySearch from '../search/CountrySearch';
 
 const Hero = () => {
   const { t } = useLanguage();
-  const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
-
-  const handleCountrySelect = (country: Country) => {
-    setSelectedCountry(country);
-  };
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-r from-primary to-primary-dark pt-20 text-white">
@@ -24,13 +16,26 @@ const Hero = () => {
           <p className="mb-8 text-lg text-white/90 md:text-xl">
             {t('hero.subtitle')}
           </p>
-
-          {/* Country Search */}
-          <div className="mb-8">
-            <CountrySearch 
-              onCountrySelect={handleCountrySelect}
-              selectedCountry={selectedCountry}
-            />
+          <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 md:justify-center">
+            <Link to="/plans">
+              <Button 
+                variant="accent" 
+                size="lg" 
+                className="group"
+              >
+                {t('hero.browsePlans')}
+                <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+            <Link to="/faq">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-white/30 bg-white/10 text-white hover:bg-white/20"
+              >
+                {t('hero.howItWorks')}
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
